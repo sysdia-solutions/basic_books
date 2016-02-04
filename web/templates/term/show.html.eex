@@ -1,0 +1,18 @@
+<h2>Show term</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @term.name %>
+  </li>
+
+  <li>
+    <strong>Days:</strong>
+    <%= @term.days %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: term_path(@conn, :edit, @term) %>
+<%= link "Back", to: term_path(@conn, :index) %>

@@ -9,3 +9,9 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+#
+
+BasicBooks.Repo.insert!(%BasicBooks.Term{name: "On Receipt", days: 0})
+BasicBooks.Repo.insert!(%BasicBooks.Term{name: "30 Days", days: 30})
+BasicBooks.Repo.insert!(%BasicBooks.Term{name: "60 Days", days: 60})
+BasicBooks.Repo.insert!(%BasicBooks.Term{name: "120 Days", days: 120})
