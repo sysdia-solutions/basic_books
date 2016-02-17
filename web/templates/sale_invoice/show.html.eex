@@ -1,0 +1,53 @@
+<h2>Show sale invoice</h2>
+
+<ul>
+
+  <li>
+    <strong>Company:</strong>
+    <%= @sale_invoice.company_id %>
+  </li>
+
+  <li>
+    <strong>Contact:</strong>
+    <%= @sale_invoice.contact_id %>
+  </li>
+
+  <li>
+    <strong>Reference:</strong>
+    <%= @sale_invoice.reference %>
+  </li>
+
+  <li>
+    <strong>Invoice date:</strong>
+    <%= @sale_invoice.invoice_date %>
+  </li>
+
+  <li>
+    <strong>Paid date:</strong>
+    <%= @sale_invoice.paid_date %>
+  </li>
+
+  <li>
+    <strong>Po number:</strong>
+    <%= @sale_invoice.po_number %>
+  </li>
+
+  <li>
+    <strong>Is credit note:</strong>
+    <%= @sale_invoice.is_credit_note %>
+  </li>
+
+  <li>
+    <strong>Resolved vat:</strong>
+    <%= @sale_invoice.resolved_vat %>
+  </li>
+
+  <li>
+    <strong>Resolved corp:</strong>
+    <%= @sale_invoice.resolved_corp %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: sale_invoice_path(@conn, :edit, @sale_invoice) %>
+<%= link "Back", to: sale_invoice_path(@conn, :index) %>

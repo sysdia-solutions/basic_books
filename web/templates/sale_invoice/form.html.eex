@@ -1,0 +1,53 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :reference, class: "control-label" %>
+    <%= text_input f, :reference, class: "form-control" %>
+    <%= error_tag f, :reference %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :invoice_date, class: "control-label" %>
+    <%= datetime_select f, :invoice_date, class: "form-control" %>
+    <%= error_tag f, :invoice_date %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :paid_date, class: "control-label" %>
+    <%= datetime_select f, :paid_date, class: "form-control" %>
+    <%= error_tag f, :paid_date %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :po_number, class: "control-label" %>
+    <%= text_input f, :po_number, class: "form-control" %>
+    <%= error_tag f, :po_number %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_credit_note, class: "control-label" %>
+    <%= checkbox f, :is_credit_note, class: "form-control" %>
+    <%= error_tag f, :is_credit_note %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :resolved_vat, class: "control-label" %>
+    <%= checkbox f, :resolved_vat, class: "form-control" %>
+    <%= error_tag f, :resolved_vat %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :resolved_corp, class: "control-label" %>
+    <%= checkbox f, :resolved_corp, class: "form-control" %>
+    <%= error_tag f, :resolved_corp %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
