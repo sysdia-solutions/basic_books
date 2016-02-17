@@ -9,6 +9,7 @@
       <th>Town</th>
       <th>Post code</th>
       <th>Country</th>
+      <th>Contact</th>
       <th>Term</th>
       <th>Is supplier</th>
       <th>Is customer</th>
@@ -26,6 +27,7 @@
       <td><%= company.post_code %></td>
       <td><%= company.country %></td>
       <td><%= if company.term, do: company.term.name %></td>
+      <td><%= if company.contact, do: company.contact.name %></td>
       <td><%= company.is_supplier %></td>
       <td><%= company.is_customer %></td>
 

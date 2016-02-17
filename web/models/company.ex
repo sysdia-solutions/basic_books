@@ -10,13 +10,14 @@ defmodule BasicBooks.Company do
     field :country, :string
     field :is_supplier, :boolean, default: false
     field :is_customer, :boolean, default: false
+    belongs_to :contact, BasicBooks.Contact, foreign_key: :contact_id
     belongs_to :term, BasicBooks.Term, foreign_key: :term_id
 
     timestamps
   end
 
   @required_fields ~w(company_number name address town post_code country is_supplier is_customer)
-  @optional_fields ~w(term_id)
+  @optional_fields ~w(term_id contact_id)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

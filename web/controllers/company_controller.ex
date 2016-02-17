@@ -3,23 +3,40 @@ defmodule BasicBooks.CompanyController do
 
   alias BasicBooks.Company
   alias BasicBooks.Term
+  alias BasicBooks.Contact
 
   plug :scrub_params, "company" when action in [:create, :update]
 
+  defp preload_all(data) do
+    data
+    |> Repo.preload([:term])
+    |> Repo.preload([:contact])
+  end
+
+  defp assigns(changeset, record \\ nil) do
+    terms = Repo.all(Term)
+    contacts = Repo.all(Contact)
+
+    [
+      company: record,
+      changeset: changeset,
+      terms: terms,
+      contacts: contacts
+    ]
+  end
+
   def index(conn, _params) do
     companies = Repo.all(Company)
-                |> Repo.preload([:term])
+                |> preload_all()
     render(conn, "index.html", companies: companies)
   end
 
   def new(conn, _params) do
-    terms = Repo.all(Term)
     changeset = Company.changeset(%Company{})
-    render(conn, "new.html", changeset: changeset, terms: terms)
+    render(conn, "new.html", assigns(changeset))
   end
 
   def create(conn, %{"company" => company_params}) do
-    terms = Repo.all(Term)
     changeset = Company.changeset(%Company{}, company_params)
 
     case Repo.insert(changeset) do
@@ -28,25 +45,23 @@ defmodule BasicBooks.CompanyController do
         |> put_flash(:info, "Company created successfully.")
         |> redirect(to: company_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset, terms: terms)
+        render(conn, "new.html", assigns(changeset))
     end
   end
 
   def show(conn, %{"id" => id}) do
     company = Repo.get!(Company, id)
-              |> Repo.preload([:term])
+              |> preload_all()
     render(conn, "show.html", company: company)
   end
 
   def edit(conn, %{"id" => id}) do
-    terms = Repo.all(Term)
     company = Repo.get!(Company, id)
     changeset = Company.changeset(company)
-    render(conn, "edit.html", company: company, changeset: changeset, terms: terms)
+    render(conn, "edit.html", assigns(changeset, company))
   end
 
   def update(conn, %{"id" => id, "company" => company_params}) do
-    terms = Repo.all(Term)
     company = Repo.get!(Company, id)
     changeset = Company.changeset(company, company_params)
 
@@ -56,7 +71,7 @@ defmodule BasicBooks.CompanyController do
         |> put_flash(:info, "Company updated successfully.")
         |> redirect(to: company_path(conn, :show, company))
       {:error, changeset} ->
-        render(conn, "edit.html", company: company, changeset: changeset, terms: terms)
+        render(conn, "edit.html", assigns(changeset, company))
     end
   end
 
