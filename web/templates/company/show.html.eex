@@ -1,0 +1,53 @@
+<h2>Show company</h2>
+
+<ul>
+
+  <li>
+    <strong>Company number:</strong>
+    <%= @company.company_number %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @company.name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @company.address %>
+  </li>
+
+  <li>
+    <strong>Town:</strong>
+    <%= @company.town %>
+  </li>
+
+  <li>
+    <strong>Post code:</strong>
+    <%= @company.post_code %>
+  </li>
+
+  <li>
+    <strong>Country:</strong>
+    <%= @company.country %>
+  </li>
+
+  <li>
+    <strong>Term:</strong>
+    <%= if @company.term, do: @company.term.name %>
+  </li>
+
+  <li>
+    <strong>Is supplier:</strong>
+    <%= @company.is_supplier %>
+  </li>
+
+  <li>
+    <strong>Is customer:</strong>
+    <%= @company.is_customer %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: company_path(@conn, :edit, @company) %>
+<%= link "Back", to: company_path(@conn, :index) %>

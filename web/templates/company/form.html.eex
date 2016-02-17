@@ -1,0 +1,65 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :company_number, class: "control-label" %>
+    <%= number_input f, :company_number, class: "form-control" %>
+    <%= error_tag f, :company_number %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= textarea f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :address, class: "control-label" %>
+    <%= textarea f, :address, class: "form-control" %>
+    <%= error_tag f, :address %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :town, class: "control-label" %>
+    <%= textarea f, :town, class: "form-control" %>
+    <%= error_tag f, :town %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :post_code, class: "control-label" %>
+    <%= textarea f, :post_code, class: "form-control" %>
+    <%= error_tag f, :post_code %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :country, class: "control-label" %>
+    <%= textarea f, :country, class: "form-control" %>
+    <%= error_tag f, :country %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :term_id, class: "control-label" %>
+    <%= select f, :term_id, terms_for_select(@terms), class: "form-control" %>
+    <%= error_tag f, :term_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_supplier, class: "control-label" %>
+    <%= checkbox f, :is_supplier, class: "form-control" %>
+    <%= error_tag f, :is_supplier %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_customer, class: "control-label" %>
+    <%= checkbox f, :is_customer, class: "form-control" %>
+    <%= error_tag f, :is_customer %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

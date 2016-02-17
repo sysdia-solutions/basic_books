@@ -18,6 +18,7 @@ defmodule BasicBooks.Router do
 
     get "/", PageController, :index
     resources "/terms", TermController
+    resources "/companies", CompanyController
   end
 
   # Other scopes may use custom stacks.

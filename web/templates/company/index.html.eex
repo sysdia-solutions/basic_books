@@ -1,0 +1,42 @@
+<h2>Listing companies</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Company number</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Town</th>
+      <th>Post code</th>
+      <th>Country</th>
+      <th>Term</th>
+      <th>Is supplier</th>
+      <th>Is customer</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for company <- @companies do %>
+    <tr>
+      <td><%= company.company_number %></td>
+      <td><%= company.name %></td>
+      <td><%= company.address %></td>
+      <td><%= company.town %></td>
+      <td><%= company.post_code %></td>
+      <td><%= company.country %></td>
+      <td><%= if company.term, do: company.term.name %></td>
+      <td><%= company.is_supplier %></td>
+      <td><%= company.is_customer %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: company_path(@conn, :show, company), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: company_path(@conn, :edit, company), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: company_path(@conn, :delete, company), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New company", to: company_path(@conn, :new) %>
