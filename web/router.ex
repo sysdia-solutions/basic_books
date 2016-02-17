@@ -18,6 +18,7 @@ defmodule BasicBooks.Router do
 
     get "/", PageController, :index
     resources "/terms", TermController
+    resources "/contacts", ContactController
     resources "/companies", CompanyController
   end
 

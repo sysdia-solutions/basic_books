@@ -1,0 +1,6 @@
+<h2>New contact</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: contact_path(@conn, :create) %>
+
+<%= link "Back", to: contact_path(@conn, :index) %>
