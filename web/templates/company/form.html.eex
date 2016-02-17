@@ -43,13 +43,13 @@
 
   <div class="form-group">
     <%= label f, :contact_id, class: "control-label" %>
-    <%= select f, :contact_id, contacts_for_select(@contacts), class: "form-control" %>
+    <%= select f, :contact_id, @contacts, class: "form-control" %>
     <%= error_tag f, :contact_id %>
   </div>
 
   <div class="form-group">
     <%= label f, :term_id, class: "control-label" %>
-    <%= select f, :term_id, terms_for_select(@terms), class: "form-control" %>
+    <%= select f, :term_id, @terms, class: "form-control" %>
     <%= error_tag f, :term_id %>
   </div>
 

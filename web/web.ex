@@ -36,6 +36,11 @@ defmodule BasicBooks.Web do
 
       import BasicBooks.Router.Helpers
       import BasicBooks.Gettext
+
+      def collection_enum(model, column) do
+        from(m in model, select: {field(m, ^column), m.id})
+        |> Repo.all()
+      end
     end
   end
 

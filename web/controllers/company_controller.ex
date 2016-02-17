@@ -14,8 +14,8 @@ defmodule BasicBooks.CompanyController do
   end
 
   defp assigns(changeset, record \\ nil) do
-    terms = Repo.all(Term)
-    contacts = Repo.all(Contact)
+    terms = collection_enum(Term, :name)
+    contacts = collection_enum(Contact,:name)
 
     [
       company: record,
