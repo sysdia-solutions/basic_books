@@ -12,6 +12,30 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :company_id, class: "control-label" %>
+    <%= select f, :company_id, @companies, class: "form-control" %>
+    <%= error_tag f, :company_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :contact_id, class: "control-label" %>
+    <%= select f, :contact_id, @contacts, class: "form-control" %>
+    <%= error_tag f, :contact_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :term_id, class: "control-label" %>
+    <%= select f, :term_id, @terms, class: "form-control" %>
+    <%= error_tag f, :term_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :payment_id, class: "control-label" %>
+    <%= select f, :payment_id, @payments, class: "form-control" %>
+    <%= error_tag f, :payment_id %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :invoice_date, class: "control-label" %>
     <%= datetime_select f, :invoice_date, class: "form-control" %>
     <%= error_tag f, :invoice_date %>

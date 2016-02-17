@@ -6,6 +6,8 @@
       <th>Company</th>
       <th>Contact</th>
       <th>Reference</th>
+      <th>Payment Terms</th>
+      <th>Payment Types</th>
       <th>Invoice date</th>
       <th>Paid date</th>
       <th>Po number</th>
@@ -19,9 +21,11 @@
   <tbody>
 <%= for sale_invoice <- @sale_invoices do %>
     <tr>
-      <td><%= sale_invoice.company_id %></td>
-      <td><%= sale_invoice.contact_id %></td>
+      <td><%= if sale_invoice.company, do: sale_invoice.company.name %></td>
+      <td><%= if sale_invoice.contact, do: sale_invoice.contact.name %></td>
       <td><%= sale_invoice.reference %></td>
+      <td><%= if sale_invoice.term, do: sale_invoice.term.name %></td>
+      <td><%= if sale_invoice.payment, do: sale_invoice.payment.name %></td>
       <td><%= sale_invoice.invoice_date %></td>
       <td><%= sale_invoice.paid_date %></td>
       <td><%= sale_invoice.po_number %></td>

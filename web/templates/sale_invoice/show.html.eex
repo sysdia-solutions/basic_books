@@ -4,12 +4,22 @@
 
   <li>
     <strong>Company:</strong>
-    <%= @sale_invoice.company_id %>
+    <%= if @sale_invoice.company, do: @sale_invoice.company.name %>
   </li>
 
   <li>
     <strong>Contact:</strong>
-    <%= @sale_invoice.contact_id %>
+    <%= if @sale_invoice.contact, do: @sale_invoice.contact.name %>
+  </li>
+
+  <li>
+    <strong>Payment Terms:</strong>
+    <%= if @sale_invoice.term, do: @sale_invoice.term.name %>
+  </li>
+
+  <li>
+    <strong>Payment Type:</strong>
+    <%= if @sale_invoice.payment, do: @sale_invoice.payment.name %>
   </li>
 
   <li>

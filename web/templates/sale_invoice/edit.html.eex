@@ -1,6 +1,7 @@
 <h2>Edit sale invoice</h2>
 
 <%= render "form.html", changeset: @changeset,
-                        action: sale_invoice_path(@conn, :update, @sale_invoice) %>
+                        action: sale_invoice_path(@conn, :update, @sale_invoice),
+                        companies: @companies, contacts: @contacts, terms: @terms, payments: @payments %>
 
 <%= link "Back", to: sale_invoice_path(@conn, :index) %>
