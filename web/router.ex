@@ -20,6 +20,7 @@ defmodule BasicBooks.Router do
     resources "/terms", TermController
     resources "/contacts", ContactController
     resources "/companies", CompanyController
+    resources "/payments", PaymentController
   end
 
   # Other scopes may use custom stacks.
